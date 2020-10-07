@@ -1,23 +1,25 @@
 import React from 'react';
 
 const Accordion = ({ items }) => {
-    const renderedItems = items.map(item => {
+    const renderedItems = items.map((item, index) => {
         return (
-            <div key={item.title}>
-                <div className="title active">
+            <React.Fragment key={item.title}>
+                <div 
+                  className="title active"
+                  onClick={() => console.log('Title clicked', index)}>
                     <i className="dropdown icon"></i>
                     {item.title}
                 </div>
-                <div className="conetent active">
+                <div className="content active">
                     <p>{item.content}</p>
                 </div>
-            </div>
+            </React.Fragment>
         )
     });
 
     return <div className="ui stlye accordion">
         {renderedItems}
-    </div>;
-};
+    </div>
+}
 
 export default Accordion;
